@@ -1,0 +1,39 @@
+<%- include('partials/header');  %>
+<%- include('partials/main_nav');  %>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold"><%= title %></h1>
+    </div>
+  
+    <!-- Content for the Update page -->
+ 
+  
+              <form method="post">
+                  <div class="mb-3 col-md-4">
+                      <label for="nameTextField" class="form-label">Name: </label>
+                      <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Name" name="name" value="<%= ContactList.name %>" required>
+                  </div>
+  
+                  <div class="mb-3 col-md-4">
+                      <label for="emailTextField" class="form-label">Email: </label>
+                      <input type="text" class="form-control" id="emailTextField" placeholder="Enter the Email" name="email" value="<%= ContactList.email %>" required>
+                  </div>
+  
+                  <div class="mb-3 col-md-4">
+                      <label for="phoneTextField" class="form-label">Phone: </label>
+                      <input type="number" class="form-control" id="phoneTextField" placeholder="Enter the Phone" name="phone" value="<%= ContactList.phone %>" required>
+                  </div>
+  
+                  <button class="btn btn-outline-primary" type="submit">
+                      <i class="fas fa-edit"></i> Submit
+                  </button>
+                  <a href="/contact-list/delete/<%= ContactList._id %>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                  <a href="/contact-list" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
+              </form>
+  
+  </div>
+
+<%- include('partials/bottom_nav');  %>
+
+<%- include('partials/footer');  %>

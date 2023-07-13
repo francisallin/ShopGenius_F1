@@ -1,0 +1,52 @@
+
+
+<h1><%= title %></h1>
+<p>All the selling products display here!</p>
+
+<% if (typeof displayName == 'string' && displayName) { %>
+    <a href="/product/add" class="btn btn-primary" role="button">
+      <i class="fas fa-plus-circle"> Add a product</i>
+    </a>
+<% } %>
+
+<table>
+    <!-- Header row-->
+    <thead>
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Trim</th>
+        <th>Color</th>
+        <th>Price</th>
+        <% if (typeof displayName == 'string' && displayName) { %>
+        <th></th>
+        <th></th>
+        <% } %>
+    </tr>
+    </thead>
+
+    <tbody>
+      <!-- Loop through the ProductList array -->
+      <% for (let count = 0; count < ProductList.length; count++) { %>
+        <tr>
+          <td><%= ProductList[count].brand %></td>
+          <td><%= ProductList[count].model %></td>
+          <td><%= ProductList[count].year %></td>
+          <td><%= ProductList[count].trim %></td>
+          <td><%= ProductList[count].color %></td>
+          <td><%= ProductList[count].price %></td>
+          <% if (typeof displayName == 'string' && displayName) { %>
+          <td>
+            <a href="/product/update/<%= ProductList[count]._id %>"> Update
+            </a>
+          </td>
+          <td>
+            <a href="/product/delete/<%= ProductList[count]._id %>"> Delete
+            </a>
+          </td>
+          <% } %>
+        </tr>
+      <% } %>
+    </tbody>
+</table>

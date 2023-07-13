@@ -1,0 +1,41 @@
+<%- include('partials/header');  %>
+<%- include('partials/main_nav');  %>
+
+<div class=" container d-flex justify-content-center align-items-center p-5 mb-4 bg-light rounded-5 ">
+  <div class="container-fluid py-5 ">
+
+    <!-- Message Area-->
+    <% if (messages.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= messages %>
+        </div>
+    <% } %>
+    <h1 class="display-5 fw-bold offset-md-4 mb-3">Please Login</h1>
+    <form method="POST" autocomplete="off">
+        
+        <div class="mb-4 col-md-4 offset-md-4">
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" class="form-control" name="username" placeholder="Enter username" id="username" required autofocus>
+        </div>
+
+        <div class="mb-4 col-md-4 offset-md-4">
+            <label for="password" class="form-label">Password: </label>
+            <input type="password" class="form-control" name="password" placeholder="Enter password" id="password" required>
+            or
+            <a href="/register">Register Here</a>
+        </div>
+
+
+        <div class="mb-4 col-md-8 offset-md-4">
+            <input type="submit" class="btn btn-outline-success" value="Login">
+            <a href="/">
+                <input type="button" class="btn btn-outline-warning" value="Cancel">
+            </a>
+        </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/bottom_nav');  %>
+
+<%- include('partials/footer');  %>

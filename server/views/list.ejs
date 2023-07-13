@@ -1,0 +1,70 @@
+<%- include('partials/header');  %>
+<%- include('partials/main_nav');  %>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold"><%= title %></h1>
+  </div>
+
+  <% if (typeof displayName == 'string' && displayName) { %>
+  <a href="/contact-list/add" class="btn btn-primary" role="button">
+    <i class="fas fa-plus-circle"> Add a Contact</i>
+  </a>
+  <% } %>
+
+  <main>
+    <div class="row">
+        <div class="col-md-offet-3 col-md-6">
+            <br>
+            <table class="table table-hover table-striped table-bordered">
+                <!-- Header row-->
+                <thead>
+                <tr>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Email</th>
+                    <th class="text-center" scope="col">Phone</th>
+                    <% if (typeof displayName == 'string' && displayName) { %>
+                    <th class="text-center" scope="col"></th>
+                    <th class="text-center" scope="col"></th>
+                    <% } %>
+                </tr>
+                </thead>
+
+                <tbody>
+                  <!-- Sort the ContactList array alphabetically by name -->
+                  <% const sortedContactList = ContactList.sort((a, b) => a.name.localeCompare(b.name)); %>
+                  
+                  <!-- Loop through the sorted ContactList array -->
+                  <% for (let count = 0; count < sortedContactList.length; count++) { %>
+                    <tr class="text-center">
+                      <td class="text-center"><%= sortedContactList[count].name %></td>
+                      <td class="text-center"><%= sortedContactList[count].email %></td>
+                      <td class="text-center"><%= sortedContactList[count].phone %></td>
+                      
+                      <% if (typeof displayName == 'string' && displayName) { %>
+                      <td class="text-center">
+                        <a href="/contact-list/update/<%= sortedContactList[count]._id %>" class="btn btn-outline-primary btn-sm">
+                          <i class="fas fa-pencil alt"></i> Update
+                        </a>
+                      </td>
+                      <td class="text-center">
+                        <a href="/contact-list/delete/<%= sortedContactList[count]._id %>" class="btn btn-outline-danger btn-sm">
+                          <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                      </td>
+                      <% } %>
+                    </tr>
+                  <% } %>
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+  </main>
+
+</div>
+
+<%- include('partials/bottom_nav');  %>
+
+<%- include('partials/footer');  %>
