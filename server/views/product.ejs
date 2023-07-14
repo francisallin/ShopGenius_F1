@@ -1,52 +1,46 @@
+<%- include('partials/header.ejs'); %>
+<%- include('partials/main_nav.ejs'); %>
+
+<div class="p-5 m-5 bg-light rounded-3" >
+  <div class="container-fluid p-5 row">
+    <h1><%= title %></h1>
+    <p>All the selling products display here!</p>
+    <% if (typeof displayName == 'string' && displayName) { %>
+      <a href="/product/add" class="btn btn-primary" role="button">
+        <i class="fas fa-plus-circle"> Add a product</i>
+      </a>
+    <% } %>
+    <div class="d-flex flex-wrap justify-content-center">
+      <!-- import projects content from routes-->
+      <% for (let count = 0; count < ProductList.length; count++){ %>
+        <div class="col-sm-4 card shadow rounded-4 border-0 m-3 p-2" style="min-width: 300px;"> <!--cards with border start here-->
+          <div class="card-body p-0 m-2 align-items-center">
+            <div class="d-flex align-items-center" style="min-height: 180px;">
+              <div>
+                Brand: <%= ProductList[count].brand %><br>
+                Model: <%= ProductList[count].model %><br>
+                Year: <%= ProductList[count].year %><br>
+                Trim: <%= ProductList[count].trim %><br>
+                Color: <%= ProductList[count].color %><br>
+                Price: <%= ProductList[count].price %><br>
+
+              </div>
+            </div>
+              <div>
+                <a href="/product/update/<%= ProductList[count]._id %>" class="btn btn-light rounded-5 px-5 m-1" style="background-color: #f9c9cb;">Update</a>
+                <a href="/product/delete/<%= ProductList[count]._id %>" class="btn btn-light rounded-5 px-5 m-1" style="background-color: #f9c9cb;">Delete</a>
+              </div>
+            
+          </div>
+        </div>
+      <% }; %>
+    </div>
+  </div>
+</div>
 
 
-<h1><%= title %></h1>
-<p>All the selling products display here!</p>
 
-<% if (typeof displayName == 'string' && displayName) { %>
-    <a href="/product/add" class="btn btn-primary" role="button">
-      <i class="fas fa-plus-circle"> Add a product</i>
-    </a>
-<% } %>
 
-<table>
-    <!-- Header row-->
-    <thead>
-    <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Trim</th>
-        <th>Color</th>
-        <th>Price</th>
-        <% if (typeof displayName == 'string' && displayName) { %>
-        <th></th>
-        <th></th>
-        <% } %>
-    </tr>
-    </thead>
+<%- include('partials/bottom_nav.ejs'); %>
 
-    <tbody>
-      <!-- Loop through the ProductList array -->
-      <% for (let count = 0; count < ProductList.length; count++) { %>
-        <tr>
-          <td><%= ProductList[count].brand %></td>
-          <td><%= ProductList[count].model %></td>
-          <td><%= ProductList[count].year %></td>
-          <td><%= ProductList[count].trim %></td>
-          <td><%= ProductList[count].color %></td>
-          <td><%= ProductList[count].price %></td>
-          <% if (typeof displayName == 'string' && displayName) { %>
-          <td>
-            <a href="/product/update/<%= ProductList[count]._id %>"> Update
-            </a>
-          </td>
-          <td>
-            <a href="/product/delete/<%= ProductList[count]._id %>"> Delete
-            </a>
-          </td>
-          <% } %>
-        </tr>
-      <% } %>
-    </tbody>
-</table>
+<%- include('partials/footer.ejs'); %>
