@@ -11,7 +11,7 @@ module.exports.displayProductList = async (req, res, next) => {
     await Product.find()
               .then((products) => {
                 console.log(products);
-                  res.render('product', {title: 'Product', ProductList: products, displayName: req.user ? req.user.displayName : ''})
+                  res.render('product', {title: 'Geniuses', ProductList: products, displayName: req.user ? req.user.displayName : ''})
               })
               .catch((err) => {
                 res.status(500).send({

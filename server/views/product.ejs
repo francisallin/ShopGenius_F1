@@ -4,10 +4,10 @@
 <div class="p-5 m-5 bg-light rounded-3" >
   <div class="container-fluid p-5 row">
     <h1><%= title %></h1>
-    <p>All the selling products display here!</p>
+    <p>Talents, geniuses, you name it. They are all here ready to hire!</p>
     <% if (typeof displayName == 'string' && displayName) { %>
       <a href="/product/add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"> Add a product</i>
+        <i class="fas fa-plus-circle"> Add a talent</i>
       </a>
     <% } %>
     <div class="d-flex flex-wrap justify-content-center">
@@ -17,13 +17,14 @@
           <div class="card-body p-0 m-2 align-items-center">
             <div class="d-flex align-items-center" style="min-height: 180px;">
               <div>
-                Brand: <%= ProductList[count].brand %><br>
-                Model: <%= ProductList[count].model %><br>
-                Year: <%= ProductList[count].year %><br>
-                Trim: <%= ProductList[count].trim %><br>
-                Color: <%= ProductList[count].color %><br>
+                <img class="img-fluid" src="../../Assets/images/<%= ProductList[count].imageName%>" alt="CR7" > <br>
+                First name: <%= ProductList[count].firstName %><br>
+                Last name: <%= ProductList[count].lastName %><br>
+                Talent: <%= ProductList[count].talent %><br>
+                Description: <%= ProductList[count].description %><br>
+                Service: <%= ProductList[count].service %><br>
                 Price: <%= ProductList[count].price %><br>
-
+                Remarks: <%= ProductList[count].remarks %><br>
               </div>
             </div>
               <div>
