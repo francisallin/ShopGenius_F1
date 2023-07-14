@@ -27,19 +27,21 @@ module.exports.displayAddPage = async (req, res, next) => {
 }
 
 module.exports.processAddPage = async (req, res, next) => {
-    if (!req.body.brand || !req.body.model || !req.body.year || !req.body.trim || !req.body.color || !req.body.price) {
+    if (!req.body.firstName || !req.body.lastName || !req.body.talent || !req.body.description || !req.body.service || !req.body.price) {
       return res.status(400).send({
         message: "Please enter all necessary information",
       });
     }
   
     const newProduct = new Product({
-      brand: req.body.brand,
-      model: req.body.model,
-      year: req.body.year,
-      trim: req.body.trim,
-      color: req.body.color,
-      price: req.body.price
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      talent: req.body.talent,
+      description: req.body.description,
+      service: req.body.service,
+      price: req.body.price,
+      remarks: req.body.remarks,
+      imageName: req.body.imageName
     });
   
     await newProduct.save()
@@ -73,7 +75,7 @@ module.exports.displayUpdatePage = async (req, res, next) => {
 }
 
 module.exports.processUpdatePage = async (req, res, next) => {
-    if (!req.body.brand || !req.body.model || !req.body.year || !req.body.trim || !req.body.color || !req.body.price) {
+    if (!req.body.firstName || !req.body.lastName || !req.body.talent || !req.body.description || !req.body.service || !req.body.price) {
         return res.status(400).send({
           message: "Please enter all necessary information",
         });
@@ -82,12 +84,14 @@ module.exports.processUpdatePage = async (req, res, next) => {
     await Product.findByIdAndUpdate(
       req.params.id,
       {
-        brand: req.body.brand,
-        model: req.body.model,
-        year: req.body.year,
-        trim: req.body.trim,
-        color: req.body.color,
-        price: req.body.price
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        talent: req.body.talent,
+        description: req.body.description,
+        service: req.body.service,
+        price: req.body.price,
+        remarks: req.body.remarks,
+        imageName: req.body.imageName
       },
       { new: true }
     )
