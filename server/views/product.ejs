@@ -1,4 +1,5 @@
-
+<%- include('partials/header.ejs'); %>
+<%- include('partials/main_nav.ejs'); %>
 
 <div class="p-5 m-5 bg-light rounded-3" >
   <div class="container-fluid p-5 row">
@@ -15,15 +16,14 @@
         <div class="col-sm-4 card shadow rounded-4 border-0 m-3 p-2" style="min-width: 300px;"> <!--cards with border start here-->
           <div class="card-body p-0 m-2 align-items-center">
             <div class="d-flex align-items-center" style="min-height: 180px;">
-              <img class="img-fluid" src="<%= ProductList[count].imageName%>.jpg" alt=" " >
               <div>
-                First name: <%= ProductList[count].firstName %><br>
-                Last name: <%= ProductList[count].lastName %><br>
-                Talent: <%= ProductList[count].talent %><br>
-                Description: <%= ProductList[count].description %><br>
-                Service: <%= ProductList[count].service %><br>
+                Brand: <%= ProductList[count].brand %><br>
+                Model: <%= ProductList[count].model %><br>
+                Year: <%= ProductList[count].year %><br>
+                Trim: <%= ProductList[count].trim %><br>
+                Color: <%= ProductList[count].color %><br>
                 Price: <%= ProductList[count].price %><br>
-                Remarks: <%= ProductList[count].remarks %><br>
+
               </div>
             </div>
               <div>
@@ -42,3 +42,5 @@
 
 
 <%- include('partials/bottom_nav.ejs'); %>
+
+<%- include('partials/footer.ejs'); %>
