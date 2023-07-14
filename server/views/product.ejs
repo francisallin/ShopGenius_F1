@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
-<%- include('partials/header.ejs'); %>
-<%- include('partials/main_nav.ejs'); %>
+
 
 <div class="p-5 m-5 bg-light rounded-3" >
   <div class="container-fluid p-5 row">
@@ -21,7 +18,7 @@
               <img class="img-fluid" src="<%= ProductList[count].imageName%>.jpg" alt=" " >
               <div>
                 First name: <%= ProductList[count].firstName %><br>
-                Last name: <%= ProductList[count].lastname %><br>
+                Last name: <%= ProductList[count].lastName %><br>
                 Talent: <%= ProductList[count].talent %><br>
                 Description: <%= ProductList[count].description %><br>
                 Service: <%= ProductList[count].service %><br>
@@ -40,56 +37,8 @@
     </div>
   </div>
 </div>
->>>>>>> Stashed changes
 
 
-<h1><%= title %></h1>
-<p>All the selling products display here!</p>
 
-<% if (typeof displayName == 'string' && displayName) { %>
-    <a href="/product/add" class="btn btn-primary" role="button">
-      <i class="fas fa-plus-circle"> Add a product</i>
-    </a>
-<% } %>
 
-<table>
-    <!-- Header row-->
-    <thead>
-    <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Trim</th>
-        <th>Color</th>
-        <th>Price</th>
-        <% if (typeof displayName == 'string' && displayName) { %>
-        <th></th>
-        <th></th>
-        <% } %>
-    </tr>
-    </thead>
-
-    <tbody>
-      <!-- Loop through the ProductList array -->
-      <% for (let count = 0; count < ProductList.length; count++) { %>
-        <tr>
-          <td><%= ProductList[count].brand %></td>
-          <td><%= ProductList[count].model %></td>
-          <td><%= ProductList[count].year %></td>
-          <td><%= ProductList[count].trim %></td>
-          <td><%= ProductList[count].color %></td>
-          <td><%= ProductList[count].price %></td>
-          <% if (typeof displayName == 'string' && displayName) { %>
-          <td>
-            <a href="/product/update/<%= ProductList[count]._id %>"> Update
-            </a>
-          </td>
-          <td>
-            <a href="/product/delete/<%= ProductList[count]._id %>"> Delete
-            </a>
-          </td>
-          <% } %>
-        </tr>
-      <% } %>
-    </tbody>
-</table>
+<%- include('partials/bottom_nav.ejs'); %>
