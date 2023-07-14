@@ -1,18 +1,10 @@
 <%- include('partials/header');  %>
 <%- include('partials/main_nav');  %>
 
-<div class="p-5 m-5 bg-light rounded-3" >
-  <div class="container-fluid p-5 row">
-    <div class="col-5">
-      <img src="../../Assets/images/tree.JPG" alt="intro pic" class="introPic rounded-3">
-    </div>
-    <div class="col-7 fs-4" align="center">
-      <h1 class="display-5 fw-bold " align="center">Welcome to <%= title %></h1>
-      <div>Discover the Genius of Shopping!</div>
-      <div class="list-group col-4 mt-3">
-        <a href="/product" class="btn btn-light rounded-5" style="background-color: #f9c9cb;">&nbsp; Shop Now!</a>
-      </div>
-    </div>
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5 row">
+    <h1 class="display-5 fw-bold">Welcome to <%= title %></h1>
+    <p class="col-md-8 fs-4">Placeholder</p>
   </div>
 
   <!-- <div class="list-group col-md-2">
@@ -23,7 +15,9 @@
     <a href="/contact" class="list-group-item list-group-item-action" style="text-indent: 10px;"><i class="fa-regular fa-paper-plane"></i>&nbsp; Contact</a>
   </div> -->
 
-
+  <div class="list-group col-md-2">
+    <a href="/product" class="list-group-item list-group-item-action" style="text-indent: 10px;"><i class="fa-regular fa-address-card"></i>&nbsp; Shop Now!</a>
+  </div>
 </div>
 
 <%- include('partials/bottom_nav');  %>
