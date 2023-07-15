@@ -1,2 +1,65 @@
 <h1><%= title %></h1>
-<p>updating products here!</p>
+<p>Updating products here!</p>
+
+
+<%- include('partials/header');  %>
+<%- include('partials/main_nav');  %>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold"><%= title %></h1>
+    </div>
+  
+    <!-- Content for the Update page -->
+ 
+  
+              <form method="post">
+                  <div class="mb-3 col-md-4">
+                    <label for="firstNameTextField" class="form-label">First Name: </label>
+                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter First Name" name="firstname" value="<%= ProductList.firstname %>" required>
+                  </div>
+
+                  <div class="mb-3 col-md-4">
+                    <label for="lastNameTextField" class="form-label">Last Name: </label>
+                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter Last Name" name="lastname" value="<%= ProductList.lastname %>" required>
+                  </div>
+  
+                  <div class="mb-3 col-md-4">
+                    <label for="talentTextField" class="form-label">Talent: </label>
+                    <input type="text" class="form-control" id="talentTextField" placeholder="Name of Talent" name="talent" value="<%= ProductList.talent %>" required>
+                  </div>
+  
+                  <div class="mb-3 col-md-4">
+                    <label for="descriptionTextField" class="form-label">Description: </label>
+                    <input type="text" class="form-control" id="descriptionTextField" placeholder="Description" name="description" value="<%= ProductList.description %>" required>
+                  </div>
+
+                  <div class="mb-3 col-md-4">
+                    <label for="serviceTextField" class="form-label">Service: </label>
+                    <input type="text" class="form-control" id="serviceTextField" placeholder="Service" name="service" value="<%= ProductList.service %>" required>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label for="priceNumberField" class="form-label">Price: </label>
+                    <input type="number" class="form-control" id="priceNumberField" placeholder="Price" name="price" value="<%= ProductList.price %>" required>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label for="remarksTextField" class="form-label">Remarks: </label>
+                    <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" value="<%= ProductList.phone %>" required>
+                </div>
+  
+                  <button class="btn btn-outline-primary" type="submit">
+                      <i class="fas fa-edit"></i> Submit
+                  </button>
+
+                  <a href="/contact-list/delete/<%= ContactList._id %>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+
+                  <a href="/product-list" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
+              </form>
+  
+  </div>
+
+<%- include('partials/bottom_nav');  %>
+
+<%- include('partials/footer');  %>
