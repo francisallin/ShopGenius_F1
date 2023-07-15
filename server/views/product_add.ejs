@@ -1,6 +1,5 @@
-<h1><%= title %></h1>
-<p>Adding products here!</p>
 
+<p></p>
 
 <%- include('partials/header');  %>
 <%- include('partials/main_nav');  %>
@@ -16,12 +15,12 @@
             <form method="post">
                 <div class="mb-3 col-md-4">
                     <label for="firstNameTextField" class="form-label">First Name: </label>
-                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter First Name" name="firstname" required>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" name="firstName" required>
                 </div>
 
                 <div class="mb-3 col-md-4">
                     <label for="lastNameTextField" class="form-label">Last Name: </label>
-                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter Last Name" name="lastname" required>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" name="lastName" required>
                 </div>
 
 
@@ -50,10 +49,17 @@
                     <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" required>
                 </div>
 
+                <div class="mb-3 col-md-4">
+                    <label for="imageName"  class="form-label">Select an image:</label>
+                    <p><input type="file" id="imageName" name="imageName"></p>
+                </div>
+
+
+
                 <button class="btn btn-outline-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit
                 </button>
-                <a href="/product-list" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
+                <a href="/ProductList" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
             </form>
 
 </div>

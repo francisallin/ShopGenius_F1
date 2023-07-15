@@ -1,10 +1,9 @@
-<h1><%= title %></h1>
-<p>Updating products here!</p>
+
 
 
 <%- include('partials/header');  %>
 <%- include('partials/main_nav');  %>
-
+<p></p>
 <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold"><%= title %></h1>
@@ -16,12 +15,12 @@
               <form method="post">
                   <div class="mb-3 col-md-4">
                     <label for="firstNameTextField" class="form-label">First Name: </label>
-                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter First Name" name="firstname" value="<%= ProductList.firstname %>" required>
+                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter First Name" name="firstName" value="<%= ProductList.firstName %>" required>
                   </div>
 
                   <div class="mb-3 col-md-4">
                     <label for="lastNameTextField" class="form-label">Last Name: </label>
-                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter Last Name" name="lastname" value="<%= ProductList.lastname %>" required>
+                    <input type="text" class="form-control" id="lastNameTextField" placeholder="Enter Last Name" name="lastName" value="<%= ProductList.lastName %>" required>
                   </div>
   
                   <div class="mb-3 col-md-4">
@@ -46,16 +45,16 @@
 
                 <div class="mb-3 col-md-4">
                     <label for="remarksTextField" class="form-label">Remarks: </label>
-                    <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" value="<%= ProductList.phone %>" required>
+                    <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" value="<%= ProductList.remarks %>" required>
                 </div>
   
                   <button class="btn btn-outline-primary" type="submit">
                       <i class="fas fa-edit"></i> Submit
                   </button>
 
-                  <a href="/product-list/delete/<%= ProductList._id %>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                  <a href="/ProductList/delete/<%= ProductList._id %>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</a>
 
-                  <a href="/product-list" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
+                  <a href="/ProductList" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
               </form>
   
   </div>

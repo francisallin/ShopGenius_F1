@@ -75,6 +75,7 @@ module.exports.displayUpdatePage = async (req, res, next) => {
 }
 
 module.exports.processUpdatePage = async (req, res, next) => {
+
     if (!req.body.firstName || !req.body.lastName || !req.body.talent || !req.body.description || !req.body.service || !req.body.price) {
         return res.status(400).send({
           message: "Please enter all necessary information",
