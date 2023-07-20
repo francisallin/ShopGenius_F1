@@ -256,7 +256,7 @@
 
 /*** Products ***/
 .product {
-    background: linear-gradient(rgba(96, 97, 95, 0.1), rgba(101, 101, 101, 0.1)), url(../img/product-bg.png) left bottom no-repeat;
+    background: linear-gradient(rgba(176, 176, 176, 0.1), rgba(101, 101, 101, 0.1)), url(../img/product-bg.png) left bottom no-repeat;
     background-size: auto;
 }
 
