@@ -2,3 +2,7 @@
 .introPic{
     width: 90%;
 }
+.carousel-image{
+    object-fit: cover;
+    height: 70vh;
+}
