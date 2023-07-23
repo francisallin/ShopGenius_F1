@@ -18,16 +18,14 @@
             <div class="d-flex align-items-center" style="min-height: 180px;">
               <div>
                 <img class="img-fluid" src="../../Assets/images/<%= ProductList[count].imageName%>" alt="product image" > <br>
-                First name: <%= ProductList[count].firstName %><br>
-                Last name: <%= ProductList[count].lastName %><br>
+                Name: <%= ProductList[count].firstName %> <%= ProductList[count].lastName %><br>
                 Talent: <%= ProductList[count].talent %><br>
-                Description: <%= ProductList[count].description %><br>
                 Service: <%= ProductList[count].service %><br>
-                Price: <%= ProductList[count].price %><br>
-                Remarks: <%= ProductList[count].remarks %><br>
+                Price: $<%= ProductList[count].price %>/30 min<br>
               </div>
             </div>
               <div>
+                <a href="/product/<%= ProductList[count]._id %>" class="btn btn-light rounded-5 px-5 m-1" style="background-color: #f9c9cb;">See more</a>
                 <a href="/product/update/<%= ProductList[count]._id %>" class="btn btn-light rounded-5 px-5 m-1" style="background-color: #f9c9cb;">Update</a>
                 <a href="/product/delete/<%= ProductList[count]._id %>" class="btn btn-light rounded-5 px-5 m-1" style="background-color: #f9c9cb;">Delete</a>
               </div>

@@ -21,6 +21,23 @@ module.exports.displayProductList = async (req, res, next) => {
               });
 }
 
+module.exports.displayIndividualProduct = async (req, res, next) => {
+
+  const productId = req.params.id;
+  await Product.findById(productId)
+  .then((product) => {
+    console.log(product);
+      res.render('product_individual', {title: product.firstName, product, displayName: req.user ? req.user.displayName : ''})
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message: "Something went wrong!!",
+      error: err,
+    });
+  });
+
+};
+
 module.exports.displayAddPage = async (req, res, next) => {
     // console.log(req.user)
     res.render('product_add', {title: 'Add Product', displayName: req.user ? req.user.displayName : ''})
