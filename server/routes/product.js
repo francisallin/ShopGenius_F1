@@ -14,9 +14,12 @@ function requireAuth(req, res, next) {
     }
     next();
 }
-
+/* The following part has "/product" omitted, ie /product/:id --> /:id*/
 /* GET Route for the Product List page  - READ Operation*/
 router.get('/', productController.displayProductList)
+
+/* GET Route for the Individual Product page  - READ Operation*/
+router.get('/:id', productController.displayIndividualProduct)
 
 /* GET Route for displaying Add page  - CREATE Operation*/
 router.get('/add', requireAuth, productController.displayAddPage)
