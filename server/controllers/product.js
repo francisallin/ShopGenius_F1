@@ -39,7 +39,7 @@ module.exports.displayIndividualProduct = async (req, res, next) => {
 };
 
 module.exports.displayAddPage = async (req, res, next) => {
-    // console.log(req.user)
+     console.log("Add page ok")
     res.render('product_add', {title: 'Add Product', displayName: req.user ? req.user.displayName : ''})
 }
 

@@ -19,7 +19,7 @@ function requireAuth(req, res, next) {
 router.get('/', productController.displayProductList)
 
 /* GET Route for the Individual Product page  - READ Operation*/
-router.get('/:id', productController.displayIndividualProduct)
+router.get('/individual/:id', productController.displayIndividualProduct)
 
 /* GET Route for displaying Add page  - CREATE Operation*/
 router.get('/add', requireAuth, productController.displayAddPage)
