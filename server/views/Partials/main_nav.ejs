@@ -1,31 +1,33 @@
-  <!-- Main Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mx-5 mb-5">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="../../Assets/images/logo.png" alt="logo" width="200px"></a>
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mx-5 mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="../../Assets/images/logo.png" alt="logo" width="200px"></a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:17px;">
-        <ul class="navbar-nav ms-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:17px;">
+      <ul class="navbar-nav ms-auto">
 
-          <li class="nav-item ">
-            <% if (title == "ShopGenius" ) { %>
+        <li class="nav-item ">
+          <% if (title=="ShopGenius" ) { %>
             <a class="nav-link active " href="/home"> <i class="fas fa-laptop-house"></i> Home </a>
             <% } else { %>
-            <a class="nav-link " href="/home"> <i class="fas fa-laptop-house"></i> Home </a>
-            <% } %>
-          </li>
+              <a class="nav-link " href="/home"> <i class="fas fa-laptop-house"></i> Home </a>
+              <% } %>
+        </li>
 
-          <li class="nav-item ">
-            <% if (title == "Product") { %>
+        <li class="nav-item ">
+          <% if (title=="Geniuses" ) { %>
             <a class="nav-link active" href="/product"> <i class="fa-solid fa-list-check"></i>&nbsp; Geniuses </a>
             <% } else { %>
-            <a class="nav-link" href="/product"> <i class="fa-solid fa-list-check"></i>&nbsp; Geniuses </a>
-            <% } %>
-          </li>
+              <a class="nav-link" href="/product"> <i class="fa-solid fa-list-check"></i>&nbsp; Geniuses </a>
+              <% } %>
+        </li>
 
+<<<<<<< Updated upstream
           <!-- <li class="nav-item ">
             <% if (title == "Services") { %>
             <a class="nav-link active" href="/services"> <i class="fa-brands fa-servicestack"></i>&nbsp; Services </a>
@@ -44,26 +46,33 @@
 
           <li class="nav-item ">
             <% if (title == "Contact") { %>
+=======
+        <li class="nav-item ">
+          <% if (title=="Contact" ) { %>
+>>>>>>> Stashed changes
             <a class="nav-link active" href="/contact"> <i class="fa-regular fa-paper-plane"></i>&nbsp; Contact </a>
             <% } else { %>
-            <a class="nav-link" href="/contact"> <i class="fa-regular fa-paper-plane"></i>&nbsp; Contact </a>
-            <% } %>
-          </li>
+              <a class="nav-link" href="/contact"> <i class="fa-regular fa-paper-plane"></i>&nbsp; Contact </a>
+              <% } %>
+        </li>
 
-          <% if (typeof displayName == 'string' && displayName) { %>
-            <li class="navbar-text">&nbsp;<i class="fas fa-lg fa-user"></i><span class="text-success">&nbsp;Welcome, <%= displayName %> </span></li>
-            <li class="nav-item"><a href="/logout" class="nav-link"> <i class="fas fa-lg fa-sign-out-alt"></i>&nbsp; Logout </a></li>
+        <% if (typeof displayName=='string' && displayName) { %>
+          <li class="navbar-text">&nbsp;<i class="fas fa-lg fa-user"></i><span class="text-success">&nbsp;Welcome, <%=
+                displayName %> </span></li>
+          <li class="nav-item"><a href="/logout" class="nav-link"> <i class="fas fa-lg fa-sign-out-alt"></i>&nbsp;
+              Logout </a></li>
           <% } else { %>
-            <% if (title == "Login") { %>
-              <li class="nav-item"><a href="/login" class="nav-link active"> <i class="fas fa-lg fa-sign-in-alt"></i>&nbsp; Login </a></li>
-            <% } else { %>
-              <li class="nav-item"><a href="/login" class="nav-link"> <i class="fas fa-lg fa-sign-in-alt"></i>&nbsp; Login </a></li>
-            <% } %>  
-          <% } %>          
+            <% if (title=="Login" ) { %>
+              <li class="nav-item"><a href="/login" class="nav-link active"> <i
+                    class="fas fa-lg fa-sign-in-alt"></i>&nbsp; Login </a></li>
+              <% } else { %>
+                <li class="nav-item"><a href="/login" class="nav-link"> <i class="fas fa-lg fa-sign-in-alt"></i>&nbsp;
+                    Login </a></li>
+                <% } %>
+                  <% } %>
 
 
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
-
+  </div>
+</nav>
