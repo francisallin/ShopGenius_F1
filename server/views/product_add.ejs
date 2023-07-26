@@ -1,67 +1,87 @@
+<%- include('partials/header'); %>
+    <%- include('partials/main_nav'); %>
 
 <%- include('partials/header');  %>
 <%- include('partials/main_nav');  %>
 
-<div class="p-5 mb-4 bg-light rounded-3">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold"><%= title %></h1>
-  </div>
+        <div class=" m-5 p-5 bg-light rounded-3 ">
+            <div class="container-fluid py-5">
+                <h1 class="fs-1">
+                    <%= title %>
+                </h1>
+            </div>
 
-  <!-- Content for the Add page -->
+
+            <!-- Content for the Add page -->
 
 
-            <form method="post">
-                <div class="mb-3 col-md-4">
-                    <label for="firstNameTextField" class="form-label">First Name: </label>
-                    <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" name="firstName" required>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="container-fluid mx-auto">
+                    <form method="post">
+
+                        <div class="mb-3 col-md-4">
+                            <label for="firstNameTextField" class="form-label">First Name: </label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter First Name"
+                                name="firstName" required>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="lastNameTextField" class="form-label">Last Name: </label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name"
+                                name="lastName" required>
+                        </div>
+
+
+                        <div class="mb-3 col-md-4">
+                            <label for="talentTextField" class="form-label">Talent: </label>
+                            <input type="text" class="form-control" id="talentTextField" placeholder="Name of Talent"
+                                name="talent" required>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="descriptionTextField" class="form-label">Description: </label>
+                            <input type="text" class="form-control" id="descriptionTextField" placeholder="Description"
+                                name="description" required>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="serviceTextField" class="form-label">Service: </label>
+                            <input type="text" class="form-control" id="serviceTextField" placeholder="Service"
+                                name="service" required>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="priceNumberField" class="form-label">Price: </label>
+                            <input type="number" class="form-control" id="priceNumberField" placeholder="Price"
+                                name="price" required>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="remarksTextField" class="form-label">Remarks: </label>
+                            <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks"
+                                name="remarks" required>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="imageName" class="form-label">Select an image:</label>
+                            <p><input type="file" id="imageName" name="imageName"></p>
+                        </div>
+
+
+
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="fas fa-edit"></i> Submit
+                        </button>
+                        <a href="/Product" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
+                    </form>
                 </div>
 
-                <div class="mb-3 col-md-4">
-                    <label for="lastNameTextField" class="form-label">Last Name: </label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" name="lastName" required>
-                </div>
+
+            </div>
 
 
-                <div class="mb-3 col-md-4">
-                    <label for="talentTextField" class="form-label">Talent: </label>
-                    <input type="text" class="form-control" id="talentTextField" placeholder="Name of Talent" name="talent" required>
-                </div>
+        </div>
 
-                <div class="mb-3 col-md-4">
-                    <label for="descriptionTextField" class="form-label">Description: </label>
-                    <input type="text" class="form-control" id="descriptionTextField" placeholder="Description" name="description" required>
-                </div>
+        <%- include('partials/bottom_nav'); %>
 
-                <div class="mb-3 col-md-4">
-                    <label for="serviceTextField" class="form-label">Service: </label>
-                    <input type="text" class="form-control" id="serviceTextField" placeholder="Service" name="service" required>
-                </div>
-
-                <div class="mb-3 col-md-4">
-                    <label for="priceNumberField" class="form-label">Price: </label>
-                    <input type="number" class="form-control" id="priceNumberField" placeholder="Price" name="price" required>
-                </div>
-
-                <div class="mb-3 col-md-4">
-                    <label for="remarksTextField" class="form-label">Remarks: </label>
-                    <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" required>
-                </div>
-
-                <div class="mb-3 col-md-4">
-                    <label for="imageName"  class="form-label">Select an image:</label>
-                    <p><input type="file" id="imageName" name="imageName"></p>
-                </div>
-
-
-
-                <button class="btn btn-outline-primary" type="submit">
-                    <i class="fas fa-edit"></i> Submit
-                </button>
-                <a href="/Product" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
-            </form>
-
-</div>
-
-<%- include('partials/bottom_nav');  %>
-
-<%- include('partials/footer');  %>
+            <%- include('partials/footer'); %>
