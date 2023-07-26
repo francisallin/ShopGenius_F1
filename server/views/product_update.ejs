@@ -1,64 +1,68 @@
-
-
-
 <%- include('partials/header');  %>
 <%- include('partials/main_nav');  %>
 <p></p>
-<div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold"><%= title %></h1>
+<div class="bg-light mx-5">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5 text-center">
+            <h1 class="display-5 fw-bold"><%= title %></h1>
+          </div>
+          <!-- Content for the Update page -->
+          <form method="post">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="firstNameTextField" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter First Name" name="firstName" value="<%= ProductList.firstName %>" required>
+              </div>
+              <div class="col-md-6">
+                <label for="lastNameTextField" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="lastNameTextField" placeholder="Enter Last Name" name="lastName" value="<%= ProductList.lastName %>" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="talentTextField" class="form-label">Talent:</label>
+                <input type="text" class="form-control" id="talentTextField" placeholder="Name of Talent" name="talent" value="<%= ProductList.talent %>" required>
+              </div>
+              <div class="col-md-6">
+                <label for="descriptionTextField" class="form-label">Description:</label>
+                <textarea class="form-control" id="descriptionTextField" placeholder="Description" name="description" required><%= ProductList.description %></textarea>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="serviceTextField" class="form-label">Service:</label>
+                <input type="text" class="form-control" id="serviceTextField" placeholder="Service" name="service" value="<%= ProductList.service %>" required>
+              </div>
+              <div class="col-md-6">
+                <label for="priceNumberField" class="form-label">Price:</label>
+                <input type="number" class="form-control" id="priceNumberField" placeholder="Price" name="price" value="<%= ProductList.price %>" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <label for="remarksTextField" class="form-label">Remarks:</label>
+                <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" value="<%= ProductList.remarks %>" required>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-outline-primary" type="submit">
+                <i class="fas fa-edit"></i> Submit
+              </button>
+
+              <a href="/Product" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  
-    <!-- Content for the Update page -->
- 
-  
-              <form method="post">
-                  <div class="mb-3 col-md-4">
-                    <label for="firstNameTextField" class="form-label">First Name: </label>
-                    <input type="text" class="form-control" id="firstNameTextField" placeholder="Enter First Name" name="firstName" value="<%= ProductList.firstName %>" required>
-                  </div>
-
-                  <div class="mb-3 col-md-4">
-                    <label for="lastNameTextField" class="form-label">Last Name: </label>
-                    <input type="text" class="form-control" id="lastNameTextField" placeholder="Enter Last Name" name="lastName" value="<%= ProductList.lastName %>" required>
-                  </div>
-  
-                  <div class="mb-3 col-md-4">
-                    <label for="talentTextField" class="form-label">Talent: </label>
-                    <input type="text" class="form-control" id="talentTextField" placeholder="Name of Talent" name="talent" value="<%= ProductList.talent %>" required>
-                  </div>
-  
-                  <div class="mb-3 col-md-4">
-                    <label for="descriptionTextField" class="form-label">Description: </label>
-                    <input type="text" class="form-control" id="descriptionTextField" placeholder="Description" name="description" value="<%= ProductList.description %>" required>
-                  </div>
-
-                  <div class="mb-3 col-md-4">
-                    <label for="serviceTextField" class="form-label">Service: </label>
-                    <input type="text" class="form-control" id="serviceTextField" placeholder="Service" name="service" value="<%= ProductList.service %>" required>
-                </div>
-
-                <div class="mb-3 col-md-4">
-                    <label for="priceNumberField" class="form-label">Price: </label>
-                    <input type="number" class="form-control" id="priceNumberField" placeholder="Price" name="price" value="<%= ProductList.price %>" required>
-                </div>
-
-                <div class="mb-3 col-md-4">
-                    <label for="remarksTextField" class="form-label">Remarks: </label>
-                    <input type="text" class="form-control" id="remarksTextField" placeholder="Remarks" name="remarks" value="<%= ProductList.remarks %>" required>
-                </div>
-  
-                  <button class="btn btn-outline-primary" type="submit">
-                      <i class="fas fa-edit"></i> Submit
-                  </button>
-
-                  <a href="/Product" class="btn btn-outline-warning"><i class="fas fa-undo"></i> Cancel</a>
-              </form>
-  
   </div>
-
-  
-
+</div>
 <%- include('partials/bottom_nav');  %>
-
 <%- include('partials/footer');  %>

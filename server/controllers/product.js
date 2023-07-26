@@ -39,13 +39,10 @@ module.exports.displayIndividualProduct = async (req, res, next) => {
 };
 
 module.exports.displayAddPage = async (req, res, next) => {
-<<<<<<< Updated upstream
+
     // console.log(req.user)
-    res.render('product_add', {title: 'Add Product', displayName: req.user ? req.user.displayName : ''})
-=======
      console.log("Add page ok")
     res.render('product_add', {title: 'Add A Talent', displayName: req.user ? req.user.displayName : ''})
->>>>>>> Stashed changes
 }
 
 module.exports.processAddPage = async (req, res, next) => {
