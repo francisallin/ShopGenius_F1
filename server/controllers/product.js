@@ -48,8 +48,13 @@ module.exports.displayAddPage = async (req, res, next) => {
 module.exports.processAddPage = async (req, res, next) => {
     if (!req.body.firstName || !req.body.lastName || !req.body.talent || !req.body.description || !req.body.service || !req.body.price) {
       return res.status(400).send({
-        message: "Please enter all necessary information",
+        message: "Please enter all necessary information"
       });
+    }
+    if (req.body.price <=0){
+      return res.status(400).send({
+        message: "Price cannot be less than 0"
+      });     
     }
   
     const newProduct = new Product({
@@ -67,9 +72,13 @@ module.exports.processAddPage = async (req, res, next) => {
               .then((data) => {
                 console.log(data)
                 // refresh the contact list
-                res.redirect('/product')
+                res.redirect('/product');
+                alert('add popup successful')
               }
                 )
+                // .then(()=>{
+                //   alert('add popup successful')
+                // })
               .catch((err) => {
                 res.status(500).send({
                   message: "Something went wrong!!",
@@ -116,7 +125,8 @@ module.exports.processUpdatePage = async (req, res, next) => {
       { new: true }
     )
       .then((updatedProduct) => {
-        console.log(updatedProduct)
+        console.log(updatedProduct);
+        alert('add popup successful');
         res.redirect('/product')
       })
       .catch((err) => {
