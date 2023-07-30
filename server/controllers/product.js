@@ -1,9 +1,7 @@
 let express = require('express')
 let router = express.Router();
 let mongoose = require('mongoose')
-
 let jwt = require('jsonwebtoken')
-
 // create a reference to the model
 let Product = require('../models/product');
 
@@ -72,8 +70,8 @@ module.exports.processAddPage = async (req, res, next) => {
               .then((data) => {
                 console.log(data)
                 // refresh the contact list
-                res.redirect('/product');
-                alert('add popup successful')
+                res.redirect('/product/?addSuccess=true');
+                // alert('add popup successful')
               }
                 )
                 // .then(()=>{
@@ -110,38 +108,38 @@ module.exports.processUpdatePage = async (req, res, next) => {
         });
     }
   
-    await Product.findByIdAndUpdate(
-      req.params.id,
-      {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        talent: req.body.talent,
-        description: req.body.description,
-        service: req.body.service,
-        price: req.body.price,
-        remarks: req.body.remarks,
-        imageName: req.body.imageName
-      },
-      { new: true }
-    )
-      .then((updatedProduct) => {
-        console.log(updatedProduct);
-        alert('add popup successful');
-        res.redirect('/product')
-      })
-      .catch((err) => {
-        res.status(500).send({
+    try {
+      const updatedProduct = await Product.findByIdAndUpdate(
+          req.params.id,
+          {
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              talent: req.body.talent,
+              description: req.body.description,
+              service: req.body.service,
+              price: req.body.price,
+              remarks: req.body.remarks,
+              imageName: req.body.imageName
+          },
+          { new: true }
+      );
+// console.log('update ok');
+      res.redirect('/product?updateSuccess=true');
+      //alert('update ok'); //<--does not work??!
+  } catch (err) {
+      res.status(500).send({
           message: "Something went wrong!!",
           error: err,
-        });
       });
+  }
 }
+
 
 module.exports.performDelete = async (req, res, next) => {
     await Product.findByIdAndRemove(req.params.id)
       .then((productToDelete) => {
-        res.redirect('/product');
-        console.log("ID: " + productToDelete._id + " got deleted!!")
+        res.redirect('/product/?deleteSuccess=true');
+        //console.log("ID: " + productToDelete._id + " got deleted!!")
       })
       .catch((err) => {
         res.status(500).send({

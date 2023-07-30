@@ -7,5 +7,36 @@
   <script src="../../lib/waypoints/waypoints.min.js"></script>
   <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../../js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+  <script>
+    // This script checks for the 'success' query parameter in the URL and shows the SweetAlert2 popup
+    const urlParams = new URLSearchParams(window.location.search);
+    const updateParam = urlParams.get('updateSuccess');
+    const deleteParam = urlParams.get('deleteSuccess');
+    const addParam = urlParams.get('addSuccess');
+    if (deleteParam === 'true') {
+      // Swal.fire('Product delete successful!', '', 'success');
+      Swal.fire({      
+        icon: 'success',
+        title: 'Product deleted!',
+        text: 'Keep calm and carry on'
+      })
+    } 
+    else if (updateParam === 'true') {
+      Swal.fire({
+        icon: 'success',
+        title: 'Product updated!',
+        text: 'Keep calm and carry on'
+      });
+    }
+    else if (addParam === 'true'){
+      Swal.fire({
+        icon: 'success',
+        title: 'Product added!',
+        text: 'Keep calm and carry on'
+      });
+    }
+
+  </script>
 </body>
 </html>
