@@ -124,6 +124,10 @@ module.exports.processRegisterPage = (req, res, next) => {
     })
 }
 
+module.exports.displayCart = (req, res, next) => {
+    res.render('cart', {title: 'Shopping Cart', displayName: req.user ? req.user.displayName : ''});
+}
+
 module.exports.performLogout = (req, res, next) => {
     req.logout(() => {
         res.redirect('/');

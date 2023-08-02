@@ -5,7 +5,7 @@ let passportLocalMongoose = require('passport-local-mongoose')
 // Define cartProducts schema
 const cartProductSchema = new mongoose.Schema({
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'products' },
-    quantity: { type: Number, default: 1 }
+    quantity: { type: Number, default: 0 }
   });
 
 let User = mongoose.Schema(
@@ -53,4 +53,4 @@ let User = mongoose.Schema(
 let options = ({missingPasswordError: 'wrong / Missing Password'})
 
 User.plugin(passportLocalMongoose, options)
-module.exports.User = mongoose.model('User', User)
+module.exports= mongoose.model('User', User)

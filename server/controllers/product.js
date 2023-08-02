@@ -44,9 +44,9 @@ module.exports.addToCart = async (req, res) => {
   try {
     // Find the product by its ID
     const product = await Product.findById(productId);
-    if (!product) {
-      return res.status(404).json({ message: "Product not found" });
-    }
+    // if (!product) {
+    //   return res.status(404).json({ message: "Product not found" });
+    // }
 
     // Find the customer by their ID
     const user = await User.findById(userId);
@@ -56,7 +56,8 @@ module.exports.addToCart = async (req, res) => {
 
     // Check if the product already exists in the cart
     const existingProduct = user.cart.cartProducts.find(
-      (item) => item.productId.toString() === productId
+      // (item) => item.productId.toString() == productId
+      (item) => item.productId == productId
     );
 
     if (existingProduct) {
@@ -71,7 +72,7 @@ module.exports.addToCart = async (req, res) => {
     await user.save();
 
     res.status(200).json({ message: "Product added to cart successfully" });
-    res.redirect('/cart');
+    //res.redirect('/cart');
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Something went wrong" });

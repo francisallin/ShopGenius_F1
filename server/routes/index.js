@@ -27,6 +27,9 @@ router.get('/register', indexController.displayRegisterPage)
 /* POST Route for processing Register page */
 router.post('/register', indexController.processRegisterPage)
 
+/* GET cart */
+router.get('/cart', indexController.displayCart)
+
 /* GET to perform UserLogout */
 router.get('/logout', indexController.performLogout)
 

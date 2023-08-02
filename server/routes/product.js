@@ -5,7 +5,6 @@ let jwt = require('jsonwebtoken')
 let productController = require('../controllers/product')
 let passport = require('passport')
 
-
 // helper function for guard purposes
 function requireAuth(req, res, next) {
     // check if the user is logged in 
@@ -21,9 +20,6 @@ router.get('/', productController.displayProductList)
 /* GET Route for the Individual Product page  - READ Operation*/
 router.get('/individual/:id', productController.displayIndividualProduct)
 
-/* POST to perform Add To Cart  - UPDATE Operation*/
-router.post('/individual/:id', requireAuth, productController.addToCart)
-
 /* GET Route for displaying Add page  - CREATE Operation*/
 router.get('/add', requireAuth, productController.displayAddPage)
 
@@ -35,6 +31,9 @@ router.get('/update/:id', requireAuth, productController.displayUpdatePage)
 
 /* PUT Route for processing Update page  - UPDATE Operation*/
 router.post('/update/:id', requireAuth, productController.processUpdatePage)
+
+/* POST add to cart */
+router.post('/addToCart', requireAuth, productController.addToCart);
 
 /* GET to perform Deletion  - DELETE Operation*/
 router.get('/delete/:id', requireAuth, productController.performDelete)
