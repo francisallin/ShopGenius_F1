@@ -21,6 +21,9 @@ router.get('/', productController.displayProductList)
 /* GET Route for the Individual Product page  - READ Operation*/
 router.get('/individual/:id', productController.displayIndividualProduct)
 
+/* POST to perform Add To Cart  - UPDATE Operation*/
+router.post('/individual/:id', requireAuth, productController.addToCart)
+
 /* GET Route for displaying Add page  - CREATE Operation*/
 router.get('/add', requireAuth, productController.displayAddPage)
 

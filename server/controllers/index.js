@@ -11,6 +11,9 @@ let DB = require('../config/database.config')
 const userModel = require('../models/user')
 const User = userModel.User //alias
 
+// create the Customer Model instance
+// const customerModel = require('../models/customer')
+// const Customer = customerModel.Customer //alias
 
 module.exports.displayHomePage = (req, res, next) => {
     res.render('index', {title: 'ShopGenius', displayName: req.user ? req.user.displayName : ''})
@@ -40,7 +43,7 @@ module.exports.displayLoginPage = (req, res, next) => {
 }
 
 module.exports.processLoginPage = (req, res, next) => {
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', (err, user) => {
         // server error?
         if (err) {
             return next(err)
@@ -66,16 +69,6 @@ module.exports.processLoginPage = (req, res, next) => {
             const authToken = jwt.sign(payload, DB.Secret, {
                 expiresIn: 604800 // 1 week
             })
-
-            /* TODO: - Getting ready to convert to API
-            res.json({success: true, msg: 'User Logged in Successfully!', user: {
-                id: user._id,
-                displayName: user.displayName,
-                username: user.username,
-                email: user.email
-            }, token: authToken})
-            */
-
             return res.redirect('/product')
         })
     })(req, res, next);
@@ -99,9 +92,9 @@ module.exports.processRegisterPage = (req, res, next) => {
     // instantiate a user object
     let newUser = new User({
         username: req.body.username,
-        // password: req.body.password
         email: req.body.email,
-        displayName: req.body.displayName
+        displayName: req.body.displayName,
+        role: 'customer'
     })
 
     User.register(newUser, req.body.password, (err) => {
@@ -124,12 +117,8 @@ module.exports.processRegisterPage = (req, res, next) => {
             // if no error exists, then registration is successful
 
             // redirect the user and authenticate them
-
-            // TODO: - Getting ready to convert to API
-            // res.json({success: true, msg: 'User Registered Successfully!'})
-
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/contact-list')
+                res.redirect('/')
             })
         }
     })

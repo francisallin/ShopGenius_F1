@@ -4,6 +4,7 @@ let mongoose = require('mongoose')
 let jwt = require('jsonwebtoken')
 // create a reference to the model
 let Product = require('../models/product');
+let User = require('../models/user');
 
 module.exports.displayProductList = async (req, res, next) => {
     await Product.find()
@@ -34,6 +35,47 @@ module.exports.displayIndividualProduct = async (req, res, next) => {
     });
   });
 
+};
+
+module.exports.addToCart = async (req, res) => {
+  const productId = req.params.id;
+  const userId = req.user._id; // Assuming you are using authentication and req.user contains the logged-in user's information
+
+  try {
+    // Find the product by its ID
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    // Find the customer by their ID
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "Customer not found" });
+    }
+
+    // Check if the product already exists in the cart
+    const existingProduct = user.cart.cartProducts.find(
+      (item) => item.productId.toString() === productId
+    );
+
+    if (existingProduct) {
+      // If the product exists in the cart, increase the quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If the product does not exist in the cart, add it to the cart
+      user.cart.cartProducts.push({ productId: productId, quantity: 1 });
+    }
+
+    // Save the updated customer document
+    await user.save();
+
+    res.status(200).json({ message: "Product added to cart successfully" });
+    res.redirect('/cart');
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
 };
 
 module.exports.displayAddPage = async (req, res, next) => {

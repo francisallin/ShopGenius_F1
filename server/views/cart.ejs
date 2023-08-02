@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs'); %>
+  <%- include('partials/main_nav.ejs'); %>
+
+
+<!-- shopping cart page -->
+<div class="p-5 m-5 bg-light rounded-3">
+    <div class="container-fluid p-5 mt-5 row">
+      <h1>Shopping Cart</h1>
+      <h4>Cart Details</h4>
+      <div class="d-flex flex-wrap justify-content-center">
+        <% cart.cartProducts.forEach(product => { %>
+          <div class="col-md-7" style="min-width: 300px;">
+            <div class="card-body p-0 m-2 align-items-center">
+              <img class="img-fluid" src="../../Assets/images/<%= product.productId.imageName %>" alt="product image" > <br>
+            </div>
+          </div>
+          <div class="col-md-4 card shadow rounded-4 border-0 m-2 p-4">
+            <div class="d-flex align-items-center" style="min-height: 180px;">
+              <div>
+                <h3><%= product.productId.firstName %> <%= product.productId.lastName %></h3><br>
+                <p>Description: <%= product.productId.description %></p>
+                <p>Talent: <%= product.productId.talent %></p>
+                <p>Service: <%= product.productId.service %></p>
+                <p>Price: $<%= product.productId.price %>/30 min</p>
+                <p>Remarks: <%= product.productId.remarks %></p>
+              </div>
+            </div>
+              <div>
+                <!-- Add buttons for updating and deleting products from cart here -->
+                <a href="/product/delete/<%= product.productId._id %>" class="btn btn-light rounded-5 px-5 m-1" style="background-color: #f9c9cb;">Delete</a>
+              </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  
+    <%- include('partials/bottom_nav.ejs'); %>
+
+      <%- include('partials/footer.ejs'); %>
+      

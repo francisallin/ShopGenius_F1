@@ -2,6 +2,12 @@
 let mongoose = require('mongoose')
 let passportLocalMongoose = require('passport-local-mongoose')
 
+// Define cartProducts schema
+const cartProductSchema = new mongoose.Schema({
+    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'products' },
+    quantity: { type: Number, default: 1 }
+  });
+
 let User = mongoose.Schema(
     {
         username: 
@@ -11,15 +17,6 @@ let User = mongoose.Schema(
             trim: true,
             require: 'username is required'
         },
-        /*
-        password:
-        {
-            type: String,
-            default: '',
-            trim: true,
-            require: 'password is required'
-        }
-        */
         email:
         {
             type: String,
@@ -34,7 +31,14 @@ let User = mongoose.Schema(
             trim: true,
             require: 'Display Name is required'
         },
-
+        role:{
+            type: String,
+            enum: ['customer', 'admin'],
+            required: true
+        },
+        cart: {
+            cartProducts: [cartProductSchema]
+        }
     },
     {
         timestamps: true,
